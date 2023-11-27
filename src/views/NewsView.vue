@@ -1,10 +1,10 @@
 <template>
-    <div class="about">
+    <div class="news-container">
     <nav-pan/>
     <div class="b-layout__main">
-    <h1>This is an about page</h1>
+  <h1>News</h1>
     </div>
-  </div>
+    </div>
 </template>
 
 <script>
@@ -16,8 +16,8 @@ export default {
 </script>
 
 <style>
-.about {
-  display: flex;
-  margin: 0 1rem 0 1rem;
+.news-container {
+    display: flex;
+    margin: 0 1rem 0 1rem;
 }
 </style>
