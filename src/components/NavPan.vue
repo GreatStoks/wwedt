@@ -1,5 +1,5 @@
 <template>
-  <header class="b-layout__header">
+  <header class="b-layout__header" :class="{ 'scrolled': scrolled }">
     <div class="b-header">
         <router-link to="/">
           <div class="header-elem"><img src="../assets/logo.png" class="logo-main">Home</div>
@@ -22,7 +22,26 @@
 
 <script>
 export default {
-
+  data() {
+    return {
+      scrolled: false
+    };
+  },
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  destroyed() {
+    window.removeEventListener('scroll', this.handleScroll);
+  },
+  methods: {
+    handleScroll() {
+      if (window.scrollY > 50) {
+        this.scrolled = true;
+      } else {
+        this.scrolled = false;
+      }
+    }
+  }
 }
 </script>
 <style scoped lang="scss">
@@ -83,6 +102,10 @@ export default {
 span {
   text-align: center;
   font-size: 23px;
+}
+
+.b-layout__header.scrolled {
+  background-color: #f3f3f3f3; /* Замените на нужный вам цвет фона */
 }
 
 </style>

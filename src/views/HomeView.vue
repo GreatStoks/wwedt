@@ -4,23 +4,31 @@
     <div class="b-layout__main">
     <h1>Привет всем!!<br>Посмотрите что есть</h1>
 
-      <div class="background-block1">
+      <div class="background-block1" v-if="weatherData">
+        <div class="weather-sec1">
+          <h2>темп {{(weatherData.main.temp - 273.15).toFixed(2)}} °C</h2>
+          <p>осадки: {{ weatherData.weather[0].main }}</p>
+          <p>сила осадков: {{ weatherData.weather[0].description }}</p>
+        </div>
+        <div class="weather-sec2">
         <h4>{{cityName}}</h4>
         <h5>{{region}}</h5>
-        <div v-if="weatherData" class="weather">
+        </div>
+        <div class="weather-sec3">
           <p>{{weatherData.dt_txt}}</p>
-          <h2>темп {{(weatherData.main.temp - 273.15).toFixed(2)}} °C</h2>
-        <p>давление: {{ weatherData.main.pressure }}</p>
-        <p>туман: {{ weatherData.main.humidity }}</p>
-        <p>осадки: {{ weatherData.weather[0].main }}</p>
-        <p>сила осадков: {{ weatherData.weather[0].description }}</p>
-        <div>
+
+          <p>давление: {{ weatherData.main.pressure }}</p>
+          <p>туман: {{ weatherData.main.humidity }}</p>
+
+        </div>
       </div>
-    </div>
-    <div v-else>
-      <p>Загрузка...</p>
-    </div>
-      </div>
+        <div v-else>
+          <p>Загрузка...</p>
+        </div>
+
+
+
+    <img :src="resultImage1" alt="Result Image 1" v-if="resultImage1" />
     <img :src="resultImage1" alt="Result Image 1" v-if="resultImage1" />
     </div>
   </div>
@@ -115,23 +123,36 @@ async mounted() {
 }
 
 .background-block1 {
-  
-  background-color: #e5a5f5;
-   
+  display: flex;
+  position: relative;
   padding: 1rem;
-
-  height: calc(100px + 4vw);
-
+  margin-bottom: 1rem;
+  height: calc(160px + 8vw);
   margin-right: 2rem;
   border-radius: 20px;
+  background-color: #e5a5f5;
 }
 
-.weather {
-  display:inline-flex;flex-wrap:wrap;
+.weather-sec1, .weather-sec2, .weather-sec3 {
+  flex: 1;
+  text-align: center;
+
+}
+
+.weather-sec1 p{
+  margin-top: calc(5px + 3vw);
+  font-size: calc(5px + 1.5vw);
+}
+
+.weather-sec3 p {
+  margin-top: calc(5px + 3.5vw);
+  font-size: calc(15px + 0.8vw);
 }
 
 p, h2 {
   margin: 1rem;
 }
+
+
 
 </style>

@@ -2,23 +2,25 @@
 <router-view/>
 <div class="b-cont">
 <canvas ref="resultCanvas"></canvas>
-<home-view/>
 
 </div>
 </template>
 
 <script>
+
+
 export default {
+
   data() {
     return {
 
     }
   },
-  mounted() {
-    this.applyNoiseToBackground();
+  async mounted() {
+    await this.applyNoiseToBackground();
   },
   methods: {
-    async applyNoiseToBackground() {
+    applyNoiseToBackground() {
       const canvas = this.$refs.resultCanvas;
       const ctx = canvas.getContext('2d');
       const scaleFactor = window.devicePixelRatio;
@@ -94,7 +96,7 @@ export default {
 body {
   padding: 0;
   margin: 0;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -104,10 +106,29 @@ h1 {
   justify-content: left;
 }
 
+h2 {
+  font-size: calc(1.5rem + 2vw);
+}
+
+h3 {
+  font-size: calc(1.3rem + 2vw);
+}
+
+h4 {
+  font-size: calc(1.2rem + 1.5vw);
+}
+
+h5 {
+  font-size: calc(1rem + 1.5vw);
+}
+
 .b-layout__header {
   position: fixed;
   padding: 1rem;
   width: 100%;
+  margin-left: -1rem;
+  transition: background-color 0.3s ease;
+  z-index: 1000;
 }
 
 .b-layout__header a {
@@ -129,6 +150,7 @@ h1 {
   padding: 0 1rem 0 1rem;
   display: flex;
   flex-direction: column;
+
 }
 
 </style>
