@@ -23,14 +23,14 @@ export default {
     applyNoiseToBackground() {
       const canvas = this.$refs.resultCanvas;
       const ctx = canvas.getContext('2d');
-      const scaleFactor = window.devicePixelRatio;
+      const scaleFactor = window.devicePixelRatio + 0.5;
 
       // Получаем размеры холста для масштабирования
       const width = window.innerWidth * scaleFactor;
       const height = window.innerHeight * scaleFactor;
 
       // Установка физических размеров холста
-      canvas.width = width;
+      canvas.width = width - 200;
       canvas.height = height;
 
       // Установка размеров холста с помощью CSS
@@ -43,7 +43,7 @@ export default {
       for (let y = 0; y < height; y++) {
         for (let x = 0; x < width; x++) {
           const value = Math.floor(Math.random() * 255);
-          ctx.fillStyle = `rgba(${value}, ${value}, ${value}, 0.2)`;
+          ctx.fillStyle = `rgba(${value}, ${value}, ${value}, 0.1)`;
           ctx.fillRect(x, y, 1, 1);
         }
       }
