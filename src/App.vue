@@ -59,7 +59,9 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+
 }
+
 .b-cont {
   position: absolute;
   top: 0;
@@ -122,6 +124,7 @@ h5 {
   font-size: calc(1rem + 1.5vw);
 }
 
+
 .b-layout__header {
   position: fixed;
   padding: 1rem;
@@ -152,5 +155,7 @@ h5 {
   flex-direction: column;
 
 }
+
+
 
 </style>

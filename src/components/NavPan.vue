@@ -2,7 +2,7 @@
   <header class="b-layout__header" :class="{ 'scrolled': scrolled }">
     <div class="b-header">
         <router-link to="/">
-          <div class="header-elem"><img src="../assets/logo.png" class="logo-main">Home</div>
+          <div class="header-elem"><img src="../assets/logo_v1.png" class="logo-main">Home</div>
         </router-link>
       
       <router-link to="/about"><div class="header-elem">About</div></router-link>
@@ -66,7 +66,7 @@ export default {
   height: calc(2rem + 1vw);
   width: calc(2rem + 1vw);
   margin-right: 0.5rem;
-
+  transition-duration: 0.6s;
 }
 
 .search-png {
